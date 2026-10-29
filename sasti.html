@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Website CV Sasti Rizki Awalia, mahasiswa Sistem Informasi dan pramuniaga.">
+
+    <title>E-CV | Sasti Rizki Awalia</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navy: #102a43;
+            --blue: #2563eb;
+            --light-blue: #eff6ff;
+            --text: #334155;
+            --muted: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f8fc;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: white;
+            min-height: 75px;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(16, 42, 67, 0.08);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: var(--navy);
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        .hero {
+            min-height: 500px;
+            padding: 80px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            background: linear-gradient(135deg, #e8f1ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 15px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero-content > p {
+            color: var(--muted);
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 9px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid #bfdbfe;
+            color: var(--blue);
+            background: white;
+        }
+
+        .button-secondary:hover {
+            background: var(--light-blue);
+        }
+
+        .hero-card {
+            width: 280px;
+            flex-shrink: 0;
+            padding: 35px 25px;
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.13);
+            text-align: center;
+        }
+
+        .avatar {
+            width: 125px;
+            height: 125px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #93c5fd);
+            color: white;
+            font-size: 42px;
+            font-weight: bold;
+        }
+
+        .hero-card h2 {
+            color: var(--navy);
+            font-size: 19px;
+        }
+
+        .hero-card p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .container {
+            max-width: 1100px;
+            padding: 70px 25px;
+            margin: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 30px;
+        }
+
+        .section-heading span {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            color: var(--navy);
+            font-size: 31px;
+            margin-top: 5px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .about-box,
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(16, 42, 67, 0.04);
+        }
+
+        .about-box p + p {
+            margin-top: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(16, 42, 67, 0.09);
+        }
+
+        .card h3 {
+            color: var(--navy);
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .card .subtitle {
+            color: var(--blue);
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .skill-group {
+            margin-bottom: 28px;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group h3 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            display: inline-block;
+            padding: 9px 15px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #dbeafe;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .contact {
+            padding: 45px 30px;
+            background: var(--navy);
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 29px;
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #dbeafe;
+        }
+
+        footer {
+            padding: 25px;
+            background: white;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 750px) {
+            .navbar {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 55px 6%;
+                flex-direction: column;
+                text-align: center;
+                gap: 35px;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 50px 20px;
+            }
+
+            .section-heading h2 {
+                font-size: 26px;
+            }
+
+            .about-box,
+            .card {
+                padding: 23px;
+            }
+
+            .contact {
+                padding: 35px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <nav class="navbar">
+        <a href="#beranda" class="logo">Sasti<span>.</span></a>
+
+        <ul class="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#pendidikan">Pendidikan</a></li>
+            <li><a href="#pengalaman">Pengalaman</a></li>
+            <li><a href="#keahlian">Keahlian</a></li>
+        </ul>
+    </nav>
+
+    <!-- BERANDA -->
+    <header class="hero" id="beranda">
+        <div class="hero-content">
+            <span class="badge">CURRICULUM VITAE & PORTOFOLIO</span>
+
+            <h1>
+                Halo, saya<br>
+                <span>Sasti Rizki Awalia</span>
+            </h1>
+
+            <p>
+                Mahasiswa Sistem Informasi yang memiliki pengalaman sebagai
+                pramuniaga. Saya senang mempelajari hal baru, memberikan
+                pelayanan terbaik kepada pelanggan, dan mengembangkan
+                kemampuan di bidang teknologi informasi.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#tentang" class="button button-primary">
+                    Tentang Saya
+                </a>
+
+                <a href="#pengalaman" class="button button-secondary">
+                    Lihat Pengalaman
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="avatar">SA</div>
+
+            <h2>Sasti Rizki Awalia</h2>
+            <p>Mahasiswa Sistem Informasi</p>
+            <p>Pramuniaga</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- TENTANG SAYA -->
+        <section class="container" id="tentang">
+            <div class="section-heading">
+                <span>Profil</span>
+                <h2>Tentang Saya</h2>
+                <p>Mengenal latar belakang dan tujuan saya.</p>
+            </div>
+
+            <div class="about-box">
+                <p>
+                    Saya merupakan mahasiswa Program Studi Sistem Informasi
+                    di Universitas Bina Sarana Informatika (UBSI) Tegal.
+                    Selain menempuh pendidikan, saya juga memiliki pengalaman
+                    kerja sebagai pramuniaga.
+                </p>
+
+                <p>
+                    Pengalaman kerja membantu saya mengembangkan kemampuan
+                    komunikasi, pelayanan pelanggan, ketelitian, tanggung
+                    jawab, dan kerja sama tim.
+                </p>
+
+                <p>
+                    Di bidang teknologi informasi, saya terus mempelajari
+                    basis data, SQL, pemrograman web, pengolahan data,
+                    dan analisis sistem informasi untuk meningkatkan
+                    keterampilan akademik maupun profesional.
+                </p>
+            </div>
+        </section>
+
+        <!-- PENDIDIKAN -->
+        <section class="container" id="pendidikan">
+            <div class="section-heading">
+                <span>Riwayat Akademik</span>
+                <h2>Pendidikan</h2>
+                <p>Riwayat pendidikan saya.</p>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <h3>Universitas Bina Sarana Informatika</h3>
+                    <div class="subtitle">Program Studi Sistem Informasi</div>
+
+                    <p>
+                        Mempelajari dasar-dasar sistem informasi, basis data,
+                        SQL, analisis sistem, pemrograman web, dan pengolahan data.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>SMKN 1 Dukuhturi</h3>
+                    <div class="subtitle">Bisnis Daring dan Pemasaran</div>
+
+                    <p>
+                        Mempelajari dasar bisnis, pemasaran, komunikasi,
+                        dan pelayanan pelanggan.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- PENGALAMAN -->
+        <section class="container" id="pengalaman">
+            <div class="section-heading">
+                <span>Pengalaman Kerja</span>
+                <h2>Pengalaman Saya</h2>
+                <p>Pengalaman yang mendukung kemampuan profesional saya.</p>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <h3>Mutiara Cahaya</h3>
+                    <div class="subtitle">Pramuniaga — PKL dan Magang</div>
+
+                    <p>
+                        Membantu melayani pelanggan, memberikan informasi
+                        produk, menjaga kerapian barang, dan mendukung
+                        kegiatan operasional toko.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Toko Emas Hidup Tegal</h3>
+                    <div class="subtitle">Pramuniaga</div>
+
+                    <p>
+                        Melayani pelanggan, memberikan informasi produk,
+                        menjaga ketelitian dalam pelayanan, serta mendukung
+                        kegiatan operasional toko sehari-hari.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- KEAHLIAN -->
+        <section class="container" id="keahlian">
+            <div class="section-heading">
+                <span>Kompetensi</span>
+                <h2>Keahlian</h2>
+                <p>Kemampuan yang saya kembangkan melalui pendidikan dan pekerjaan.</p>
+            </div>
+
+            <div class="about-box">
+                <div class="skill-group">
+                    <h3>Keahlian Profesional</h3>
+
+                    <div class="skills">
+                        <span class="skill">Pelayanan Pelanggan</span>
+                        <span class="skill">Komunikasi</span>
+                        <span class="skill">Ketelitian</span>
+                        <span class="skill">Tanggung Jawab</span>
+                        <span class="skill">Kerja Sama Tim</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Keahlian Teknologi Informasi</h3>
+
+                    <div class="skills">
+                        <span class="skill">Basis Data</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">Pemrograman Web</span>
+                        <span class="skill">Analisis Sistem</span>
+                        <span class="skill">Microsoft Word</span>
+                        <span class="skill">Microsoft PowerPoint</span>
+                        <span class="skill">Pengolahan Data</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PENUTUP -->
+        <section class="container" id="kontak">
+            <div class="contact">
+                <h2>Terima Kasih Telah Berkunjung</h2>
+
+                <p>
+                    Saya selalu terbuka untuk belajar, mengembangkan
+                    kemampuan, dan memperoleh pengalaman baru.
+                    Semoga website ini dapat memberikan gambaran
+                    mengenai profil dan kemampuan saya.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; <span id="tahun"></span> Sasti Rizki Awalia.
+        Dibuat dengan HTML, CSS, dan JavaScript.
+    </footer>
+
+    <script>
+        document.getElementById("tahun").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
